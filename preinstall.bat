@@ -13,7 +13,7 @@ cd %~dp0
 :choice
 cls
 title koyu's preinstall script for Windows
-echo Profiles: basic, gaming, office, libresuite, burner, startisback, spotify, disable
+echo Profiles: basic, gaming, office, libresuite, burner, startisback, spotify, disable, outlookplugins
 set /P c=Enter profiles or quit to quit: 
 if /I "%c%" EQU "basic" goto :basic
 if /I "%c%" EQU "gaming" goto :gaming
@@ -23,6 +23,7 @@ if /I "%c%" EQU "burner" goto :burner
 if /I "%c%" EQU "startisback" goto :startisback
 if /I "%c%" EQU "spotify" goto :spotify
 if /I "%c%" EQU "disable" goto :disable
+if /I "%c%" EQU "outlookplugins" goto :outlookplugins
 if /I "%c%" EQU "quit" goto :quit
 goto choice
 
@@ -34,7 +35,7 @@ exit
 :basic
 echo Installing basic profile...
 choco feature enable -n=allowGlobalConfirmation
-choco install adobereader googlechrome 7zip avastfreeantivirus discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent teamviewer teracopy vlc vscode winscp lockhunter nextcloud-client joplin signal
+choco install adobereader googlechrome 7zip avastfreeantivirus discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent teamviewer teracopy vlc vscode winscp lockhunter nextcloud-client joplin signal element-desktop
 choco feature disable -n=allowGlobalConfirmation
 goto choice
 
@@ -95,3 +96,11 @@ echo Installing libresuite profile...
 choco feature enable -n=allowGlobalConfirmation
 choco install libreoffice thunderbird
 choco feature disable -n=allowGlobalConfirmation
+
+:outlookplugins
+echo Installing outlookplugins profile...
+choco feature enable -n=allowGlobalConfirmation
+choco install gpg4win --params "/Config:%~dp0gpg4win.ini"
+choco install outlookcaldav
+choco feature disable -n=allowGlobalConfirmation
+goto choice
