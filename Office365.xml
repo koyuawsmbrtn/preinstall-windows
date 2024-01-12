@@ -12,7 +12,7 @@
 
   <Add OfficeClientEdition="64" Channel="Current">
     <Product ID="O365ProPlusRetail">
-      <Language ID="en-us" />
+      <Language ID="de-de" />
     </Product>
   </Add>
 

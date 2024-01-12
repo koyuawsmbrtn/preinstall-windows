@@ -13,14 +13,13 @@ cd %~dp0
 :choice
 cls
 title koyu's preinstall script for Windows
-echo Profiles: basic, gaming, office, libresuite, burner, startisback, spotify, disable, outlookplugins
+echo Profiles: basic, gaming, office, libresuite, burner, spotify, disable, outlookplugins
 set /P c=Enter profiles or quit to quit: 
 if /I "%c%" EQU "basic" goto :basic
 if /I "%c%" EQU "gaming" goto :gaming
 if /I "%c%" EQU "office" goto :office
 if /I "%c%" EQU "libresuite" goto :libresuite
 if /I "%c%" EQU "burner" goto :burner
-if /I "%c%" EQU "startisback" goto :startisback
 if /I "%c%" EQU "spotify" goto :spotify
 if /I "%c%" EQU "disable" goto :disable
 if /I "%c%" EQU "outlookplugins" goto :outlookplugins
@@ -35,17 +34,15 @@ exit
 :basic
 echo Installing basic profile...
 choco feature enable -n=allowGlobalConfirmation
-choco install adobereader googlechrome 7zip avastfreeantivirus discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent teamviewer teracopy vlc vscode winscp lockhunter googledrive joplin element-desktop
+choco install adobereader 7zip discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent rustdesk teracopy vlc vscode winscp lockhunter dropbox notion element-desktop
 choco feature disable -n=allowGlobalConfirmation
 goto choice
 
 :gaming
 echo Installing gaming profile...
 choco feature enable -n=allowGlobalConfirmation
-choco install wget steam epicgameslauncher valorant
+choco install steam epicgameslauncher
 choco feature disable -n=allowGlobalConfirmation
-wget -O cache\battlenet.exe "https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe&id=undefined"
-cache\battlenet.exe --lang=enUS --installpath="C:\Program Files (x86)\Battle.net"
 goto choice
 
 :office
@@ -67,15 +64,6 @@ echo Installing burner profile...
 choco feature enable -n=allowGlobalConfirmation
 choco install imgburn
 choco feature disable -n=allowGlobalConfirmation
-goto choice
-
-:startisback
-echo Installing startisback profile...
-choco feature enable -n=allowGlobalConfirmation
-choco install wget
-choco feature disable -n=allowGlobalConfirmation
-wget -O cache\startisback.exe https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe
-cache\startisback.exe /elevated /silent
 goto choice
 
 :spotify:
