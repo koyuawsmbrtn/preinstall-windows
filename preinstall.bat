@@ -34,7 +34,7 @@ exit
 :basic
 echo Installing basic profile...
 choco feature enable -n=allowGlobalConfirmation
-choco install adobereader 7zip discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent rustdesk teracopy vlc vscode winscp lockhunter dropbox notion element-desktop
+choco install adobereader 7zip discord filezilla gimp inkscape irfanview notepadplusplus putty python3 qbittorrent teracopy vlc vscode winscp lockhunter notion gajim
 choco feature disable -n=allowGlobalConfirmation
 goto choice
 
